@@ -10,7 +10,7 @@ import { useSession, signIn, signOut } from 'next-auth/react';
 
 const page = () => {
     return (<>
-        <div className='flex flex-col my-8'>
+        <div className='flex flex-col'>
             <h2 className='text-3xl font-bold text-center text-white mt-20'>Login to GetMeAChai</h2>
             <div className="login-with flex flex-col gap-4 mt-10 items-center justify-center">
                 <div className="google w-1/6 flex gap-3 items-center p-3 bg-gray-800 rounded-full cursor-pointer hover:bg-gray-700 active:bg-gray-800 transition-all">
@@ -21,17 +21,13 @@ const page = () => {
                     <RiLinkedinFill className='w-7 h-7 text-blue-600 rounded-full' />
                     <span className='text-white'>Login with LinkedIn</span>
                 </div>
-                <div className="github w-1/6 flex gap-3 items-center p-3 bg-gray-800 rounded-full cursor-pointer hover:bg-gray-700 active:bg-gray-800 transition-all">
+                <div className="github w-1/6 flex gap-3 items-center p-3 bg-gray-800 rounded-full cursor-pointer hover:bg-gray-700 active:bg-gray-800 transition-all" onClick={() => signIn("github")}>
                     <FaGithub className='w-7 h-7 bg-black text-white rounded-full' />
-                    <span className='text-white' onClick={() => signIn("github")}>Login with GitHub</span>
+                    <span className='text-white'>Login with GitHub</span>
                 </div>
                 <div className="x w-1/6 flex gap-3 items-center p-3 bg-gray-800 rounded-full cursor-pointer hover:bg-gray-700 active:bg-gray-800 transition-all">
                     <FaSquareXTwitter className='w-7 h-7 text-white rounded-full' />
                     <span className='text-white'>Login with X</span>
-                </div>
-                <div className="apple w-1/6 flex gap-3 items-center p-3 bg-gray-800 rounded-full cursor-pointer hover:bg-gray-700 active:bg-gray-800 transition-all">
-                    <FaApple className='w-7 h-7 bg-white rounded-full' />
-                    <span className='text-white'>Login with Apple</span>
                 </div>
             </div>
         </div>

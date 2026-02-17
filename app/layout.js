@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
       >
         <SessionWrapper>
           <Navbar />
-          <div className="min-h-[calc(100vh-90px)] text-white">
+          <div className="min-h-[80vh] text-white">
             {children}
           </div>
           <Footer />
