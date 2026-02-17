@@ -8,8 +8,10 @@ const Navbar = () => {
   const { data: session } = useSession()
   if(session){
     return <>
-        Signed in as {session.user.email} <br />
-        <button onClick={() => signOut()}>Sign out</button>
+    <nav className='fixed w-full top-0 backdrop-blur-3xl text-white flex justify-between p-4 items-center'>
+        Signed in as {session.user.email}
+        <button className="cursor-pointer px-4 p-2 rounded-full bg-linear-to-r from-purple-800 to-teal-800 hover:scale-105 transition-all hover:bg-linear-to-r hover:from-purple-950 hover:to-teal-900 active:bg-linear-to-r active:from-purple-950 active:to-teal-950" onClick={() => signOut()}>Sign out</button>
+    </nav>
     </>
   }
 
