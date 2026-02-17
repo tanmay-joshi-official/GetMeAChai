@@ -39,17 +39,17 @@ export default function Home() {
       <h2 className="text-3xl font-bold text-center">Learn more about us</h2>
       <div className="flex justify-center items-center gap-20 my-10">
         <div className="flex flex-col items-center justify-center gap-2">
-          <Image src="/mission.png" alt="mission" className="bg-slate-500 rounded-full p-3" width={100} height={100}></Image>
+          <img src="/mission.png" alt="mission" className="bg-slate-500 rounded-full p-3" width={100} height={100} />
           <h3 className="text-xl font-semibold">Our Mission</h3>
           <p className="text-lg w-[20vw] text-center">We want to help creators get funded by their fans.</p>
         </div>
         <div className="flex flex-col items-center justify-center gap-2">
-          <Image src="/vision.png" alt="vision" className="bg-slate-500 rounded-full p-3" width={100} height={100}></Image>
+          <img src="/vision.png" alt="vision" className="bg-slate-500 rounded-full p-3" width={100} height={100} />
           <h3 className="text-xl font-semibold">Our Vision</h3>
           <p className="text-lg w-[20vw] text-center">To make it easy for fans to support their favorite creators.</p>
         </div>
         <div className="flex flex-col items-center justify-center gap-2">
-          <Image src="/values.png" alt="values" className="bg-slate-500 rounded-full p-3" width={100} height={100}></Image>
+          <img src="/values.png" alt="values" className="bg-slate-500 rounded-full p-3" width={100} height={100} />
           <h3 className="text-xl font-semibold">Our Values</h3>
           <p className="text-lg w-[20vw] text-center">We value creativity, innovation, and community.</p>
         </div>
