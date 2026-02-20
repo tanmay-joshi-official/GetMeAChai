@@ -7,8 +7,14 @@ import { FaGithub } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaApple } from "react-icons/fa";
 import { useSession, signIn, signOut } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 const page = () => {
+    const router = useRouter()
+    const { data: session } = useSession()
+    if(session) {
+        router.push("/dashboard")
+    }
     return (<>
         <div className='flex flex-col'>
             <h2 className='text-3xl font-bold text-center text-white mt-20'>Login to GetMeAChai</h2>
