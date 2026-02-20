@@ -4,10 +4,10 @@ export default function Home() {
   return (<>
     <div className="flex flex-col items-center gap-4 justify-center py-26 text-white">
       <div className="flex items-center justify-center">
-        <h1 className="text-4xl font-bold text-center">Welcome to <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-700  to-teal-700">GetMeAChai</span>!</h1>
+        <h1 className="text-6xl font-bold text-center">Welcome to <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-700  to-teal-700">GetMeAChai</span>!</h1>
         <Image src="/tea.gif" alt="tea" width={70} height={80}></Image>
       </div>
-      <p className="text-center text-lg">A crowd funding platform for creators. Get funded by your fans and followers. Start now!</p>
+      <p className="text-center text-xl">A crowd funding platform for creators. Get funded by your fans and followers. Start now!</p>
       <div className="flex gap-4 mt-4">
         <button className="cursor-pointer px-4 p-2 rounded-2xl bg-linear-to-r from-purple-800 to-teal-800 hover:scale-105 transition-all hover:bg-linear-to-r hover:from-purple-950 hover:to-teal-950 active:bg-linear-to-r active:from-purple-950 active:to-teal-900">Start Here</button>
         <button className="cursor-pointer px-4 p-2 rounded-2xl bg-linear-to-r from-purple-800 to-teal-800 hover:scale-105 transition-all hover:bg-linear-to-r hover:from-purple-950 hover:to-teal-950 active:bg-linear-to-r active:from-purple-950 active:to-teal-900">Read More</button>
