@@ -1,14 +1,25 @@
 "use client"
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 
 const Dashboard = () => {
-  const { data: session } = useSession()
+  const { data: session, status } = useSession()
   const router = useRouter()
-  if(!session) {
-    router.push("/login")
+
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.push("/login")
+    }
+  }, [status, router])
+
+  if (status === "loading") {
+    return <div>Loading...</div>
+  }
+
+  if (!session) {
+    return null
   }
 
   return (
