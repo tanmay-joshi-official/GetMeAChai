@@ -5,7 +5,7 @@ export default function Home() {
     <div className="flex flex-col items-center gap-4 justify-center py-26 text-white">
       <div className="flex items-center justify-center">
         <h1 className="text-6xl font-bold text-center">Welcome to <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-700  to-teal-700">GetMeAChai</span>!</h1>
-        <Image src="/tea.gif" alt="tea" width={70} height={80}></Image>
+        <Image src="/tea.gif" alt="tea" className="invert-30" width={70} height={80}></Image>
       </div>
       <p className="text-center text-xl">A crowd funding platform for creators. Get funded by your fans and followers. Start now!</p>
       <div className="flex gap-4 mt-4">
