@@ -15,6 +15,7 @@ const handler = NextAuth({
     callbacks: {
         async signIn({ user, account, profile, email, credentials }) {
             if (account.provider === "github") {
+                await connectDB()
                 // Check if the user already exists in the database
                 const currentUser = await User.findOne({ email: user.email })
                 if (!currentUser) {
@@ -28,6 +29,7 @@ const handler = NextAuth({
             }
         },
         async session({ session, token, user }) {
+            await connectDB()
             const dbUser = await User.findOne({ email: session.user.email })
             console.log(dbUser)
             session.user.name = dbUser.username

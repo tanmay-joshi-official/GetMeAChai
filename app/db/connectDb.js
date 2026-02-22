@@ -1,14 +1,11 @@
-import mongoose from "mongoose";
+import mongoose from "mongoose"
 
 const connectDB = async () => {
-    try{
-        const conn = await mongoose.connect("mongodb://localhost:27017/GetMeAChai", {
-            useNewUrlParser: true,
-        })
-        console.log(`MongoDB Connected: ${conn.connection.host}`)
+    try {
+        await mongoose.connect("mongodb://localhost:27017/GetMeAChai")
+        console.log("MongoDB connected successfully")
     } catch (error) {
-        console.error(`Error: ${error.message}`)
-        process.exit(1)
+        console.error("MongoDB connection failed:", error)
     }
 }
 
