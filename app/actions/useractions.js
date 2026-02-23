@@ -21,3 +21,16 @@ export const initiate = async(amount, to_user, paymentfrom) => {
 
     return x
 }
+
+export const fetchuser = async (username) => {
+    await connectDB()
+    let u = await User.findOne({username: username}).lean()
+    return JSON.parse(JSON.stringify(u))
+}
+
+export const fetchpayments = async (username) => {
+    await connectDB()
+    // Find all payments sorted by decreasing order of amount and flatten object ids
+    let p = await Payment.find({to_user: username}).sort({amount: -1}).lean()
+    return JSON.parse(JSON.stringify(p))
+}
