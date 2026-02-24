@@ -5,9 +5,9 @@ import Payment from "../models/Payment";
 import User from "../models/User";
 import connectDB from "../db/connectDb";
 
-export const initiate = async(amount, to_user, paymentfrom) => {
+export const initiate = async (amount, to_user, paymentfrom) => {
     await connectDB()
-    var instance = new Razorpay({key_id: process.env.NEXT_PUBLIC_KEY_ID, key_secret: process.env.KEY_SECRET})
+    var instance = new Razorpay({ key_id: process.env.NEXT_PUBLIC_KEY_ID, key_secret: process.env.KEY_SECRET })
 
     let options = {
         amount: Number.parseInt(amount),
@@ -17,20 +17,33 @@ export const initiate = async(amount, to_user, paymentfrom) => {
     let x = await instance.orders.create(options)
 
     // Create a payment object which shows a pending payment in the database
-    await Payment.create({order_id: x.id, amount: amount, to_user: to_user, name: paymentfrom.name, message: paymentfrom.message})
+    await Payment.create({ order_id: x.id, amount: amount, to_user: to_user, name: paymentfrom.name, message: paymentfrom.message })
 
     return x
 }
 
-export const fetchuser = async (username) => {
+export const fetchuser = async (email) => {
     await connectDB()
-    let u = await User.findOne({username: username}).lean()
+    let u = await User.findOne({ email: email }).lean()
     return JSON.parse(JSON.stringify(u))
 }
 
 export const fetchpayments = async (username) => {
     await connectDB()
     // Find all payments sorted by decreasing order of amount and flatten object ids
-    let p = await Payment.find({to_user: username}).sort({amount: -1}).lean()
+    let p = await Payment.find({ to_user: username }).sort({ amount: -1 }).lean()
     return JSON.parse(JSON.stringify(p))
 }
+
+export const updateProfile = async (data, oldusername) => {
+    await connectDB()
+    let ndata = Object.fromEntries(data)
+    // If the username is being updated, check if username is available
+    if (oldusername !== ndata.username) {
+        let u = await User.findOne({ username: ndata.username })
+        if (u) {
+            return { error: "Username already exists." }
+        }
+    }
+    await User.updateOne({ username: oldusername }, { $set: ndata })
+}   

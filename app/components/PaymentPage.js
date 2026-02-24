@@ -76,6 +76,7 @@ const PaymentPage = ({ username }) => {
                 <div className="supporters w-[40%] bg-slate-900 rounded-md shadow-2xl p-10">
                     <h2 className='text-2xl font-bold text-center'>Supporters</h2>
                     <ul className="supporters-list flex flex-col items-center justify-center gap-4 mt-5">
+                        {payments.length == 0 && <li>No payments yet</li>}
                         {payments.map((p, i) => {
                             return <li key={i} className='bg-gray-800 hover:bg-gray-700 active:bg-gray-800 cursor-pointer transition-all p-2 rounded-lg px-6 flex items-center gap-4 w-full'>
                                 <img src="https://tr.rbxcdn.com/180DAY-2da16bf954be24dc43b0c69353412d96/420/420/Hat/Webp/noFilter" alt="profile" className="profile h-10 rounded-full border border-white" />
