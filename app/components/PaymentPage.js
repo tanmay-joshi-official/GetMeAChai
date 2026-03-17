@@ -85,7 +85,7 @@ const PaymentPage = ({ username }) => {
                         })}
                     </ul>
                 </div>
-                <div className="payment w-[40%] bg-slate-900 rounded-md shadow-2xl p-10 h-[68vh]">
+                <div className="payment w-[40%] bg-slate-900 rounded-md shadow-2xl p-10 flex flex-col justify-center">
                     <h2 className='text-2xl font-bold text-center'>Make a Payment</h2>
                     <div className="payment-list flex flex-col items-center justify-center gap-4 mt-5">
                         <input type="text" onChange={handleChange} value={paymentform.name} name='name' placeholder='Enter Name' className='px-4 py-2 rounded-full bg-gray-800 text-white focus:outline outline-slate-500 w-full' />
