@@ -45,6 +45,8 @@ const Dashboard = () => {
     await updateProfile(new FormData(e.target), session.user.name)
     update()
     alert("Profile updated")
+    const targetUsername = form.username || session.user.name
+    router.push(`/${targetUsername}`)
   }
 
   return (

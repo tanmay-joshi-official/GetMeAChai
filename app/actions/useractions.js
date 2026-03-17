@@ -22,16 +22,17 @@ export const initiate = async (amount, to_user, paymentfrom) => {
     return x
 }
 
-export const fetchuser = async (email) => {
+export const fetchuser = async (identifier) => {
     await connectDB()
-    let u = await User.findOne({ email: email }).lean()
-    return JSON.parse(JSON.stringify(u))
+    const query = identifier && identifier.includes("@") ? { email: identifier } : { username: identifier }
+    let u = await User.findOne(query).lean()
+    return u ? JSON.parse(JSON.stringify(u)) : null
 }
 
 export const fetchpayments = async (username) => {
     await connectDB()
     // Find all payments sorted by decreasing order of amount and flatten object ids
-    let p = await Payment.find({ to_user: username }).sort({ amount: -1 }).lean()
+    let p = await Payment.find({ to_user: username, done: true }).sort({ amount: -1 }).lean()
     return JSON.parse(JSON.stringify(p))
 }
 
