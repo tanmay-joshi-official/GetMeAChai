@@ -23,6 +23,7 @@ export const POST = async (req) => {
         const updatedPayment = await Payment.findOneAndUpdate({order_id: body.razorpay_order_id}, {done: true}, {new: true})
         return NextResponse.redirect(`${process.env.NEXT_PUBLIC_URL}/${updatedPayment.to_user}?paymentdone=true`)
     } else {
-        return NextResponse.json({success: false, message: "Payment verification failed"})
+        // Ensure failed verification also includes query state to show error toast
+        return NextResponse.redirect(`${process.env.NEXT_PUBLIC_URL}/${p.to_user}?paymentdone=false`)
     }
 }

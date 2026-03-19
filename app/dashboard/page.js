@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { updateProfile, fetchuser } from '../actions/useractions'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Dashboard = () => {
   const { data: session, status, update } = useSession()
@@ -11,10 +13,10 @@ const Dashboard = () => {
   const [form, setform] = useState({})
 
   const getData = async () => {
-    if(!session?.user?.name) return
+    if (!session?.user?.name) return
 
     let u = await fetchuser(session.user.email)
-    if(u){
+    if (u) {
       setform(u)
     }
   }
@@ -23,7 +25,7 @@ const Dashboard = () => {
     if (status === "unauthenticated") {
       router.push("/login")
     }
-    else if(status === "authenticated"){
+    else if (status === "authenticated") {
       getData()
     }
   }, [status])
@@ -44,9 +46,11 @@ const Dashboard = () => {
     e.preventDefault()
     await updateProfile(new FormData(e.target), session.user.name)
     update()
-    alert("Profile updated")
-    const targetUsername = form.username || session.user.name
-    router.push(`/${targetUsername}`)
+    toast.success("Profile updated")
+    setTimeout(() => {
+      const targetUsername = form.username || session.user.name
+      router.push(`/${targetUsername}`)
+    }, 1500)
   }
 
   return (
