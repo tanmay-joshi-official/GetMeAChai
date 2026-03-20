@@ -7,7 +7,9 @@ import connectDB from "../db/connectDb";
 
 export const initiate = async (amount, to_user, paymentfrom) => {
     await connectDB()
-    var instance = new Razorpay({ key_id: process.env.NEXT_PUBLIC_KEY_ID, key_secret: process.env.KEY_SECRET })
+    let user = await User.findOne({username: to_user})
+    const secret = user.razorpay_key_secret
+    var instance = new Razorpay({ key_id: user.razorpay_key_id, key_secret: secret })
 
     let options = {
         amount: Number.parseInt(amount),
@@ -45,6 +47,11 @@ export const updateProfile = async (data, oldusername) => {
         if (u) {
             return { error: "Username already exists." }
         }
+        await User.updateOne({email: ndata.email}, ndata)
+        // Now update all the usename in the payments table 
+        await User.updateMany({to_user: oldusername}, {to_user: ndata.username})
     }
-    await User.updateOne({ username: oldusername }, { $set: ndata })
+    else{
+        await User.updateOne({ username: oldusername }, { $set: ndata })
+    }
 }   

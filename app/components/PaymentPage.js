@@ -46,7 +46,7 @@ const PaymentPage = ({ username }) => {
         let a = await initiate(amount, username, paymentform)
         let order_id = a.id
         var options = {
-            "key": process.env.NEXT_PUBLIC_KEY_ID,
+            "key": currentuser.razorpay_key_id,
             "amount": amount,
             "currency": "INR",
             "name": "GetMeAChai",
@@ -96,10 +96,10 @@ const PaymentPage = ({ username }) => {
                     <img className='w-full h-full object-cover' src={currentuser.profile} alt="profile" />
                 </div>
             </div>
-            <div className="info flex flex-col items-center mt-16 gap-2">
+            <div className="info flex flex-col items-center mt-16 gap-1">
                 <h2>@{username}</h2>
-                <div className='text-slate-400'>Full Stack Developer</div>
-                <div className='text-slate-400'>1,719 members • 12 posts • $1,450/release</div>
+                <div className='text-slate-400'>Let's help {username} get a Chai!</div>
+                <div className='text-slate-400'>{payments.length} Payments • {currentuser.name} has raised ₹{payments.reduce((a,b) => a + b.amount, 0)}</div>
             </div>
             <div className="content flex justify-center gap-20 my-10">
                 <div className="supporters w-[40%] bg-slate-900 rounded-md shadow-2xl p-10 h-101 overflow-auto">
