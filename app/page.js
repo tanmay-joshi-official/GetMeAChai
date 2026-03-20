@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (<>
@@ -9,8 +10,12 @@ export default function Home() {
       </div>
       <p className="text-center text-xl">A crowd funding platform for creators. Get funded by your fans and followers. Start now!</p>
       <div className="flex gap-4 mt-4">
-        <button className="cursor-pointer px-4 p-2 rounded-2xl bg-linear-to-r from-purple-800 to-teal-800 hover:scale-105 transition-all hover:bg-linear-to-r hover:from-purple-950 hover:to-teal-950 active:bg-linear-to-r active:from-purple-950 active:to-teal-900">Start Here</button>
-        <button className="cursor-pointer px-4 p-2 rounded-2xl bg-linear-to-r from-purple-800 to-teal-800 hover:scale-105 transition-all hover:bg-linear-to-r hover:from-purple-950 hover:to-teal-950 active:bg-linear-to-r active:from-purple-950 active:to-teal-900">Read More</button>
+        <Link href='/login'>
+          <button className="cursor-pointer px-4 p-2 rounded-2xl bg-linear-to-r from-purple-800 to-teal-800 hover:scale-105 transition-all hover:bg-linear-to-r hover:from-purple-950 hover:to-teal-950 active:bg-linear-to-r active:from-purple-950 active:to-teal-900">Start Here</button>
+        </Link>
+        <Link href='/about'>
+          <button className="cursor-pointer px-4 p-2 rounded-2xl bg-linear-to-r from-purple-800 to-teal-800 hover:scale-105 transition-all hover:bg-linear-to-r hover:from-purple-950 hover:to-teal-950 active:bg-linear-to-r active:from-purple-950 active:to-teal-900">Read More</button>
+        </Link>
       </div>
     </div>
     <div className="separation h-1 opacity-50 bg-slate-800"></div>
@@ -24,13 +29,13 @@ export default function Home() {
         </div>
         <div className="flex flex-col items-center justify-center gap-2">
           <Image src="/coin.gif" alt="coin" className="bg-slate-500 rounded-full p-3" width={100} height={100}></Image>
-          <h3 className="text-xl font-semibold">Fans want to help</h3>
-          <p className="text-lg">Your fans are available to help you.</p>
+          <h3 className="text-xl font-semibold">Support Your Favorite Creators</h3>
+          <p className="text-lg">Help your favorite creators achieve their goals.</p>
         </div>
         <div className="flex flex-col items-center justify-center gap-2">
           <Image src="/group.gif" alt="group" className="bg-slate-500 rounded-full p-3" width={100} height={100}></Image>
-          <h3 className="text-xl font-semibold">Fans want to help</h3>
-          <p className="text-lg">Your fans are available to help you.</p>
+          <h3 className="text-xl font-semibold">Build a Community</h3>
+          <p className="text-lg">Connect with your fans and build a loyal community.</p>
         </div>
       </div>
     </div>
