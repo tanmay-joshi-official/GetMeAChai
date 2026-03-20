@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { FcGoogle } from "react-icons/fc";
 import { RiLinkedinFill } from "react-icons/ri";
 import { FaGithub } from "react-icons/fa";
@@ -10,14 +10,18 @@ import { useSession, signIn, signOut } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
 const page = () => {
-    // const router = useRouter()
-    // const { data: session } = useSession()
-    // if (session) {
-    //     router.push("/dashboard")
-    // }
+    const router = useRouter()
+    const { data: session } = useSession()
+
+    useEffect(() => {
+        document.title = "Login - GetMeAChai"
+        if (session) {
+            router.push("/dashboard")
+        }
+    }, [router, session])
     return (<>
         <div className='flex flex-col'>
-            <h2 className='text-3xl font-bold text-center text-white mt-20'>Login to GetMeAChai</h2>
+            <h2 className='text-3xl font-bold text-center text-white mt-20'>Login to Get Started</h2>
             <div className="login-with flex flex-col gap-4 mt-10 items-center justify-center">
                 <div className="google w-1/6 flex gap-3 items-center p-3 bg-gray-800 rounded-full cursor-pointer hover:bg-gray-700 active:bg-gray-800 transition-all">
                     <FcGoogle className='w-7 h-7' />

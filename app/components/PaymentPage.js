@@ -103,7 +103,7 @@ const PaymentPage = ({ username }) => {
             </div>
             <div className="content flex justify-center gap-20 my-10">
                 <div className="supporters w-[40%] bg-slate-900 rounded-md shadow-2xl p-10 h-101 overflow-auto">
-                    <h2 className='text-2xl font-bold text-center'>Supporters</h2>
+                    <h2 className='text-2xl font-bold text-center'>Top Supporters</h2>
                     <ul className="supporters-list flex flex-col items-center justify-center gap-4 mt-5">
                         {payments.length == 0 && <li>No payments yet</li>}
                         {payments.map((p, i) => {

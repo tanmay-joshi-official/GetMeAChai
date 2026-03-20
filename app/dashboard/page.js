@@ -12,6 +12,7 @@ const Dashboard = () => {
   const [form, setform] = useState({})
 
   useEffect(() => {
+    document.title = "Dashboard - GetMeAChai"
     if (status === "unauthenticated") {
       router.push("/login")
     }

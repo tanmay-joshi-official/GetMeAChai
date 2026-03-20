@@ -126,3 +126,8 @@ const About = () => {
 }
 
 export default About
+
+export const metadata = {
+    title: 'About GetMeAChai',
+    description: 'Learn about GetMeAChai, a platform for creators to receive support from their community through secure donations.',
+}
