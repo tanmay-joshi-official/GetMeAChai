@@ -5,8 +5,7 @@ import Script from 'next/script'
 import { fetchuser, fetchpayments, initiate } from '../actions/useractions'
 import { useSession } from 'next-auth/react'
 import { useSearchParams } from 'next/navigation'
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation'
 
 const PaymentPage = ({ username }) => {
@@ -78,7 +77,7 @@ const PaymentPage = ({ username }) => {
         }
         var rzp1 = new Razorpay(options);
 
-        rzp1.on('payment.failed', function (response) {
+        rzp1.on('payment.failed', function () {
             router.replace(`/${username}?paymentdone=false`)
             toast.error('Payment failed. Please try again.')
         })
@@ -88,18 +87,6 @@ const PaymentPage = ({ username }) => {
 
     return (
         <>
-            <ToastContainer
-                position="top-right"
-                autoClose={3000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="dark"
-            />
             <Script src="https://checkout.razorpay.com/v1/checkout.js"></Script>
 
 
@@ -122,7 +109,7 @@ const PaymentPage = ({ username }) => {
                         {payments.map((p, i) => {
                             return <li key={i} className='bg-gray-800 hover:bg-gray-700 active:bg-gray-800 cursor-pointer transition-all p-2 rounded-lg px-6 flex items-center gap-4 w-full'>
                                 <img src={currentuser.profile} alt="profile" className="profile h-10 rounded-full border border-white" />
-                                <div>{p.name} donated <span className='font-bold'>₹{p.amount / 100}</span> with a message "{p.message}"</div>
+                                <div>{p.name} donated <span className='font-bold'>Rs.{p.amount / 100}</span> with a message &quot;{p.message}&quot;</div>
                             </li>
                         })}
                     </ul>
@@ -135,9 +122,33 @@ const PaymentPage = ({ username }) => {
                         <input type="text" onChange={handleChange} value={paymentform.amount} name='amount' placeholder='Enter Amount' className='px-4 py-2 rounded-full bg-gray-800 text-white focus:outline outline-slate-500 w-full' />
                         <button onClick={() => pay(paymentform.amount * 100)} className='px-4 py-2 w-1/4 cursor-pointer rounded-full bg-linear-to-r from-purple-800 to-teal-800 hover:scale-105 transition-all hover:bg-linear-to-r hover:from-purple-950 hover:to-teal-900 active:bg-linear-to-r active:from-purple-950 active:to-teal-950 disabled:from-purple-950 disabled:to-teal-950 disabled:cursor-not-allowed' disabled={paymentform.name.length < 2 || paymentform.message.length < 2}>Pay</button>
                         <div className="predefined-amounts flex gap-4 mt-3">
-                            <button className='px-4 py-2 rounded-full bg-gray-800 text-white hover:bg-gray-700 active:bg-gray-800 cursor-pointer' onClick={() => pay(1000)}>Pay ₹10</button>
-                            <button className='px-4 py-2 rounded-full bg-gray-800 text-white hover:bg-gray-700 active:bg-gray-800 cursor-pointer' onClick={() => pay(2000)}>Pay ₹20</button>
-                            <button className='px-4 py-2 rounded-full bg-gray-800 text-white hover:bg-gray-700 active:bg-gray-800 cursor-pointer' onClick={() => pay(3000)}>Pay ₹30</button>
+                            {paymentform.name.length < 2 || paymentform.message.length < 2 ? (
+                                <button className='px-4 py-2 rounded-full bg-gray-800 text-white hover:bg-gray-700 active:bg-gray-800 cursor-pointer' onClick={() => toast.error("Please enter your name and message before making a payment")}>
+                                    Pay ₹10
+                                </button>
+                            ) : (
+                                <button className='px-4 py-2 rounded-full bg-gray-800 text-white hover:bg-gray-700 active:bg-gray-800 cursor-pointer' onClick={() => pay(1000)}>
+                                    Pay ₹10
+                                </button>
+                            )}
+                            {paymentform.name.length < 2 || paymentform.message.length < 2 ? (
+                                <button className='px-4 py-2 rounded-full bg-gray-800 text-white hover:bg-gray-700 active:bg-gray-800 cursor-pointer' onClick={() => toast.error("Please enter your name and message before making a payment")}>
+                                    Pay ₹20
+                                </button>
+                            ) : (
+                                <button className='px-4 py-2 rounded-full bg-gray-800 text-white hover:bg-gray-700 active:bg-gray-800 cursor-pointer' onClick={() => pay(2000)}>
+                                    Pay ₹20
+                                </button>
+                            )}
+                            {paymentform.name.length < 2 || paymentform.message.length < 2 ? (
+                                <button className='px-4 py-2 rounded-full bg-gray-800 text-white hover:bg-gray-700 active:bg-gray-800 cursor-pointer' onClick={() => toast.error("Please enter your name and message before making a payment")}>
+                                    Pay ₹30
+                                </button>
+                            ) : (
+                                <button className='px-4 py-2 rounded-full bg-gray-800 text-white hover:bg-gray-700 active:bg-gray-800 cursor-pointer' onClick={() => pay(3000)}>
+                                    Pay ₹30
+                                </button>
+                            )}
                         </div>
                     </div>
                 </div>
