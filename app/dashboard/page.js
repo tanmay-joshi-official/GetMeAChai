@@ -100,7 +100,7 @@ const Dashboard = () => {
               <input value={form.razorpay_key_secret ? form.razorpay_key_secret : ""} onChange={handleChange} className='bg-[#4649556b] border border-[#5c5c5d] rounded-lg p-2 px-5 focus:outline outline-gray-500 md:w-[30vw]' placeholder='Enter Razorpay Key Secret' type="text" name="razorpay_key_secret" id="razorpay_key_secret" />
             </div>
           </div>
-          <button className='md:px-4 px-10 flex justify-center py-2 mt-5 w-1/12 cursor-pointer rounded-full bg-linear-to-r from-purple-800 to-teal-800 hover:scale-105 transition-all hover:bg-linear-to-r hover:from-purple-950 hover:to-teal-900 active:bg-linear-to-r active:from-purple-950 active:to-teal-950 active:scale-100'>Save</button>
+          <button className='md:px-4 px-12 flex justify-center py-2 mt-5 w-1/12 cursor-pointer rounded-full bg-linear-to-r from-purple-800 to-teal-800 hover:scale-105 transition-all hover:bg-linear-to-r hover:from-purple-950 hover:to-teal-900 active:bg-linear-to-r active:from-purple-950 active:to-teal-950 active:scale-100'>Save</button>
         </form>
       </div>
     </>

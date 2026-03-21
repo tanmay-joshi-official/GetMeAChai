@@ -79,7 +79,7 @@ const About = () => {
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-8">
-                        <div className="text-center">
+                        <div className="text-center bg-slate-900 rounded-2xl px-8 py-10">
                             <div className="bg-linear-to-r from-purple-800 to-teal-800 rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                                 1
                             </div>
@@ -89,7 +89,7 @@ const About = () => {
                             </p>
                         </div>
 
-                        <div className="text-center">
+                        <div className="text-center bg-slate-900 rounded-2xl px-8 py-10">
                             <div className="bg-linear-to-r from-purple-800 to-teal-800 rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                                 2
                             </div>
