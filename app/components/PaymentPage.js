@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import Script from 'next/script'
 import { fetchuser, fetchpayments, initiate } from '../actions/useractions'
 import { useSession } from 'next-auth/react'
@@ -17,28 +17,29 @@ const PaymentPage = ({ username }) => {
     const [payments, setPayments] = useState([])
     const searchParams = useSearchParams()
 
+    const getData = useCallback(async () => {
+        let u = await fetchuser(username)
+        setCurrentuser(u)
+        let dbpayments = await fetchpayments(username)
+        setPayments(dbpayments)
+    }, [username])
+
     useEffect(() => {
         getData()
-    }, [])
+    }, [getData])
 
     useEffect(() => {
         const paymentStatus = searchParams.get("paymentdone")
 
         if (paymentStatus === "true") {
             toast.success('Payment has been made!')
+            getData() // Refresh the payments list
             setTimeout(() => router.replace(`/${username}`), 1500)
         }
-    }, [searchParams, router, username])
+    }, [searchParams, router, username, getData])
 
     const handleChange = (e) => {
         setPaymentform({ ...paymentform, [e.target.name]: e.target.value })
-    }
-
-    const getData = async () => {
-        let u = await fetchuser(username)
-        setCurrentuser(u)
-        let dbpayments = await fetchpayments(username)
-        setPayments(dbpayments)
     }
 
     const pay = async (amount) => {
