@@ -25,7 +25,7 @@ export default function Home() {
     </div>
     <div className="separation h-1 opacity-50 bg-slate-800"></div>
     <div className="flex flex-col items-center gap-4 justify-center py-20 text-white">
-      <h2 className="text-3xl text-purple-300 font-bold text-center w-[80vw]">Your fans can buy you a <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-500  to-teal-500 underline">Chai!</span></h2>
+      <h2 className="text-3xl text-purple-300 font-bold text-center w-[80vw]">Your fans can buy you a <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-500  to-teal-500">Chai!</span></h2>
       <div className="flex md:flex-row flex-col justify-center items-center gap-20 my-10">
         <div className="flex flex-col items-center justify-center gap-2 bg-slate-900 rounded-2xl px-8 py-10 md:w-auto w-[80vw] hover:shadow-md hover:shadow-green-600 ease-in duration-300 cursor-pointer">
           <Image src="/man.gif" alt="man" className="bg-slate-500 rounded-full p-3" width={100} height={100}></Image>
