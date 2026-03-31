@@ -62,6 +62,25 @@ The experience is designed to be fast, clean, and distraction-free.
 
 ---
 
+## 📂 Project Structure  
+
+```text
+app/
+|-- actions/        Server actions (user + payments)
+|-- api/            Auth & Razorpay routes
+|-- components/     UI components
+|-- dashboard/      Creator dashboard
+|-- login/          Login page
+|-- about/          About page
+|-- [username]/     Public creator page
+|-- db/             Database connection
+|-- models/         Schemas
+
+public/             Static assets
+```
+
+---
+
 ## ⚙️ Running Locally  
 
 ### 1. Install dependencies  
