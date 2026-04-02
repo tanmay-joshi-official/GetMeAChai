@@ -39,10 +39,10 @@ const Navbar = () => {
                 <li className="px-4 m-2 my-0 py-2 text-center">Signed in as {session.user.name}</li>
                 <Link href="/dashboard"><li onClick={() => setdropdown(false)} className="rounded-lg m-2 my-0 px-11 py-2 hover:bg-slate-700 active:bg-slate-800 transition-all cursor-pointer">Dashboard</li></Link>
                 <Link href={`/${session.user.name}`}><li onClick={() => setdropdown(false)} className="rounded-lg m-2 my-0 px-13 py-2 hover:bg-slate-700 active:bg-slate-800 transition-all cursor-pointer">My Page</li></Link>
-                <li className="rounded-lg m-2 my-0 px-13 py-2 hover:bg-slate-700 active:bg-slate-800 transition-all cursor-pointer mb-2" onClick={() => { signOut(); setdropdown(false); }}>Sign Out</li>
+                <li className="rounded-lg m-2 my-0 px-13 py-2 hover:bg-slate-700 active:bg-slate-800 transition-all cursor-pointer mb-2" onClick={() => { signOut({ callbackUrl: "/login" }); setdropdown(false); }}>Sign Out</li>
               </ul>
             </div>}
-            {session && <button className="cursor-pointer md:mr-2 px-4 p-2 rounded-full bg-linear-to-r from-purple-800 to-teal-800 hover:scale-105 transition-all hover:bg-linear-to-r hover:from-purple-950 hover:to-teal-900 active:bg-linear-to-r active:from-purple-950 active:to-teal-950 active:scale-100" onClick={() => signOut()}>Sign out</button>}
+            {session && <button className="cursor-pointer md:mr-2 px-4 p-2 rounded-full bg-linear-to-r from-purple-800 to-teal-800 hover:scale-105 transition-all hover:bg-linear-to-r hover:from-purple-950 hover:to-teal-900 active:bg-linear-to-r active:from-purple-950 active:to-teal-950 active:scale-100" onClick={() => signOut({ callbackUrl: "/login" })}>Sign out</button>}
           </div>
         </ul>
       </div>

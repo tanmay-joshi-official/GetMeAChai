@@ -112,10 +112,10 @@ const About = () => {
                         Join creators who are already receiving support through GetMeAChai.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="/login" className="px-8 py-3 bg-linear-to-r from-purple-800 to-teal-800 rounded-full font-semibold hover:scale-105 transition-all hover:from-purple-900 hover:to-teal-900">
+                        <a href="/login" className="px-8 py-3 bg-linear-to-r from-purple-800 to-teal-800 rounded-full font-semibold hover:scale-105 active:scale-100 transition-all hover:from-purple-900 hover:to-teal-900">
                             Create Your Profile
                         </a>
-                        <a href="/" className="px-8 py-3 border border-purple-400 rounded-full font-semibold hover:bg-purple-400 active:bg-purple-600 hover:text-slate-900 transition-all">
+                        <a href="/" className="px-8 py-3 border border-purple-400 rounded-full font-semibold hover:bg-purple-400 active:bg-purple-500 hover:text-slate-900 transition-all">
                             Home
                         </a>
                     </div>
