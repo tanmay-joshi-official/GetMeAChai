@@ -6,12 +6,18 @@ GetMeAChai is a minimal creator support platform where fans can visit a creator�
 
 ---
 
+## 🎥 Preview
+
+https://github.com/user-attachments/assets/20b08c6e-4d50-4e78-bdb2-7cc76780694d
+
+---
+
 ## ✨ What it does  
 
 Each creator gets a public page where supporters can:
-- leave a message  
-- send a payment  
-- show appreciation in a simple way  
+- Leave a message  
+- Send a payment  
+- Show appreciation in a simple way  
 
 The experience is designed to be fast, clean, and distraction-free.
 
@@ -146,7 +152,7 @@ It’s also a solid full-stack project covering authentication, database design,
 Before starting the project, check:
 
 - MongoDB is running
-- itHub OAuth is configured
+- GitHub OAuth is configured
 - Razorpay keys are added
 
 Otherwise, the payment flow won’t complete properly.
