@@ -148,7 +148,7 @@ It’s also a solid full-stack project covering authentication, database design,
 - Support custom thank-you messages
 - Improve dashboard polish
 
-## 🎥 Demo Checklist
+## 📋 Demo Checklist
 Before starting the project, check:
 
 - MongoDB is running
