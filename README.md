@@ -26,7 +26,7 @@ The experience is designed to be fast, clean, and distraction-free.
 ## 🚀 Features  
 
 - GitHub authentication using NextAuth  
-- Public creator pages at `/<username>`  
+- Public creator pages  
 - Razorpay payment integration  
 - Personalized support messages  
 - Creator dashboard for profile management  
